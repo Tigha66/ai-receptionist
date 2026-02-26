@@ -1,0 +1,33 @@
+{
+  "business": {
+    "name": "Your Business Name",
+    "phone": "+447000000000",
+    "address": "123 High Street, London, UK",
+    "timezone": "Europe/London"
+  },
+  "hours": {
+    "monday": {"start": "09:00", "end": "18:00"},
+    "tuesday": {"start": "09:00", "end": "18:00"},
+    "wednesday": {"start": "09:00", "end": "18:00"},
+    "thursday": {"start": "09:00", "end": "18:00"},
+    "friday": {"start": "09:00", "end": "18:00"},
+    "saturday": {"start": "10:00", "end": "14:00"},
+    "sunday": {"start": "00:00", "end": "00:00", "closed": true}
+  },
+  "pricing": {
+    "consultation": 50,
+    "standard": 100,
+    "premium": 200
+  },
+  "services": [
+    "Consultation",
+    "Standard Service",
+    "Premium Service"
+  ],
+  "features": {
+    "sms_confirmations": true,
+    "email_notifications": true,
+    "callback_requests": true,
+    "faq_enabled": true
+  }
+}
