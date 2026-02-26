@@ -1,181 +1,126 @@
-# AI Receptionist with OpenClaw
+# AI Receptionist 🤖📞
 
-An intelligent phone receptionist that never misses a call.
+> AI-powered phone receptionist that answers calls 24/7, books appointments, and handles FAQs - no voicemail ever!
 
 ## Features
 
-### 1. 📞 Answer Missed Calls 24/7
-- Auto-answer incoming calls
-- Personalized greetings
-- Route callers to services
+### Core Features
+- 📞 **24/7 Call Answering** - Never miss a call
+- 📅 **Appointment Booking** - Calendar integration
+- ❓ **FAQ Handling** - Answer common questions
+- 🌙 **After-Hours AI** - No voicemail - always answered
+- 📱 **Web Interface** - Book via website too
 
-### 2. 📅 Book Appointments
-- Schedule new appointments
-- Modify existing bookings
-- Confirm appointments
-- Calendar integration
+### Analytics & Feedback
+- 📊 **Call Analytics** - Track calls, bookings, trends
+- ⭐ **Feedback Collection** - Rate each interaction
+- 📈 **Performance Reports** - Daily/Weekly/Monthly
+- 🎯 **Intent Tracking** - Know what callers want
 
-### 3. ❓ Answer FAQs
-- Common questions answered
-- Dynamic responses based on context
-- Easy to update
+## Quick Start
 
-### 4. 🌙 After-Hours Routing
-- AI handles after-hours calls
-- No voicemail - always answered
-- Alternative solutions offered
+```bash
+# 1. Clone the repo
+git clone https://github.com/Tigha66/ai-receptionist.git
+cd ai-receptionist
 
----
+# 2. Configure
+cp config.json.example config.json
+# Edit config.json with your business details
 
-## Setup
+# 3. Install dependencies
+npm install
 
-### Prerequisites
-- OpenClaw installed
-- Twilio account (for phone)
-- Google Calendar (for appointments)
-- ngrok (for local development)
-
----
-
-## OpenClaw Prompt
-
+# 4. Deploy to Vercel
+vercel --prod
 ```
-Build an AI receptionist system using OpenClaw that can:
-
-1. Answer missed calls 24/7: Automatically pick up calls, providing personalized greetings, and guiding callers to their required services (appointments, FAQs, etc.).
-
-2. Book Appointments: Interface with the calendar system to schedule, modify, and confirm appointments, all while interacting with callers smoothly.
-
-3. Answer Frequently Asked Questions (FAQs): Understand and provide responses to common customer inquiries, dynamically adjusting answers based on context and database updates.
-
-4. Route After-Hours Calls to AI: Automatically direct calls that come in after business hours to the AI, ensuring that no call goes unanswered. The AI should offer alternative solutions to voicemail (avoiding lost customer interactions).
-
-The system should ensure:
-- Real-time, human-like interactions using NLP (Natural Language Processing)
-- Integration with a backend to manage customer records, appointments, and FAQs
-- Easy to customize responses and workflows as the business evolves
-```
-
----
-
-## Configuration
-
-### Business Hours
-```json
-{
-  "businessHours": {
-    "monday": {"start": "09:00", "end": "18:00"},
-    "tuesday": {"start": "09:00", "end": "18:00"},
-    "wednesday": {"start": "09:00", "end": "18:00"},
-    "thursday": {"start": "09:00", "end": "18:00"},
-    "friday": {"start": "09:00", "end": "18:00"},
-    "saturday": {"start": "10:00", "end": "14:00"},
-    "sunday": {"start": "00:00", "end": "00:00"}
-  },
-  "timezone": "Europe/London"
-}
-```
-
-### FAQs Database
-```json
-{
-  "faqs": [
-    {
-      "keywords": ["hours", "opening", "open"],
-      "answer": "We're open Monday to Friday 9am-6pm, Saturday 10am-2pm, and closed Sunday."
-    },
-    {
-      "keywords": ["price", "cost", "pricing"],
-      "answer": "Our services start from £[MIN_PRICE]. Would you like me to book a consultation?"
-    },
-    {
-      "keywords": ["location", "address", "where"],
-      "answer": "We're located at [BUSINESS_ADDRESS]. Would you like directions?"
-    }
-  ]
-}
-```
-
----
-
-## Twilio Setup
-
-1. Create Twilio account
-2. Get phone number
-3. Set up webhook to OpenClaw
-
-### TwiML Example
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<Response>
-  <Connect>
-    <Agent destination="OPENCLAW_WEBHOOK_URL"/>
-  </Connect>
-</Response>
-```
-
----
-
-## Calendar Integration
-
-### Google Calendar
-- Create service account
-- Share calendar with service account
-- Use Calendar API for bookings
-
-### Booking Flow
-1. Caller requests appointment
-2. AI checks availability
-3. AI proposes times
-4. Caller confirms
-5. Event created in calendar
-6. Confirmation sent via SMS/email
-
----
-
-## Pricing
-
-| Feature | Description |
-|---------|-------------|
-| Basic | £97/mo - Call answering + FAQs |
-| Pro | £197/mo - + Appointments + SMS |
-| Enterprise | £397/mo - + Multiple lines + CRM |
-
----
-
-## Example Responses
-
-### Opening Hours
-> "Our opening hours are Monday to Friday 9am to 6pm,am to 2pm. How and Saturday 10 can I help?"
-
-### Book Appointment
-> "I'd be happy to book you in! Let me check our availability. Would you prefer morning or afternoon?"
-
-### After Hours
-> "Thank you for calling! Our office is currently closed, but I'm here to help. What can I assist you with?"
-
----
 
 ## Files
 
 | File | Purpose |
 |------|---------|
-| `config.json` | Business settings |
-| `faqs.json` | FAQ database |
-| `receptionist.md` | Main OpenClaw prompt |
-| `calendar.js` | Calendar integration |
-| `twilio.js` | Phone webhook handler |
+| `IMPLEMENTATION.md` | Complete technical guide |
+| `receptionist.md` | OpenClaw AI prompt |
+| `config.json` | Business configuration |
+| `server.js` | Express server |
+| `web-interface.html` | Booking website |
+| `analytics.js` | Call tracking |
+| `FEEDBACK.md` | Feedback system |
+
+## Demo
+
+**Try the web interface:**
+1. Open `web-interface.html` in browser
+2. Click "Book Appointment"
+3. Fill form - saved to localStorage
+
+## Configuration
+
+Edit `config.json`:
+
+```json
+{
+  "business": {
+    "name": "My Business",
+    "phone": "+447700000000",
+    "address": "123 High St, London"
+  },
+  "hours": {
+    "monday": {"start": "09:00", "end": "18:00"}
+  },
+  "pricing": {
+    "consultation": 50
+  }
+}
+```
+
+## Tech Stack
+
+| Component | Technology |
+|-----------|-------------|
+| Phone | Twilio |
+| AI | OpenClaw (GPT-4) |
+| Speech | Groq Whisper |
+| Calendar | Google Calendar |
+| Hosting | Vercel |
+
+## Pricing for Your Clients
+
+| Plan | Price | Features |
+|------|-------|----------|
+| Basic | £97/mo | Call answering + FAQ |
+| Pro | £197/mo | + Appointments + SMS |
+| Enterprise | £397/mo | + CRM + Multi-line |
+
+## Call Flow
+
+```
+Incoming Call
+     ↓
+AI Greets + Menu
+     ↓
+┌────┴────┐
+↓          ↓
+Book     FAQ
+↓          ↓
+Calendar  Knowledge
+↓          ↓
+Confirm   Answer
+     ↓
+Collect Feedback
+     ↓
+Goodbye!
+```
+
+## Learn More
+
+- [Implementation Guide](IMPLEMENTATION.md)
+- [Feedback System](FEEDBACK.md)
+
+## Support
+
+📧 tigha66@gmail.com
 
 ---
 
-## Next Steps
-
-1. Configure business hours
-2. Add FAQs
-3. Connect Twilio
-4. Set up calendar
-5. Test!
-
----
-
-**Ready to deploy your AI Receptionist? Let me know! 🚀**
+**Built with OpenClaw** 🚀
