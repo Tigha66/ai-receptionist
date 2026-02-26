@@ -1,0 +1,9 @@
+{
+  "name": "ai-receptionist",
+  "version": "1.0.0",
+  "description": "AI Receptionist - 24/7 call handling with OpenClaw",
+  "scripts": {
+    "start": "npx serve ."
+  },
+  "dependencies": {}
+}

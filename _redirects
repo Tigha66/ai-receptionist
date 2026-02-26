@@ -1,0 +1,7 @@
+# Netlify Configuration for AI Receptionist
+
+# Redirects for SPA
+/*    /index.html   200
+
+# API Functions (if needed)
+#/api/*    /.netlify/functions/api   200
